@@ -1,16 +1,33 @@
 package com.bridgelabs;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello and welcome to Address Book!");
 
         AddressBook book = new AddressBook();
+        Contact contact;
 
-        Contact contact = book.addContact();
-        System.out.print(contact);
+        while(true){
+            System.out.print("Enter 1 : new contact \nEnter 2 : Edit contact\nEnter 3 : exit\n");
+            int choice = scanner.nextInt();
+            switch (choice){
+                case 1 : contact = book.addContact();
+                         System.out.println(contact);
+                         break;
+
+                case 2 : contact = book.modifyContact();
+                         System.out.println(contact);
+                         break;
+
+                case 3: return;
+
+                default : System.out.println("Invalid input");
+            }
+        }
 
     }
 }
