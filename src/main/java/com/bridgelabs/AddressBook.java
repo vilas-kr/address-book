@@ -70,7 +70,7 @@ public class AddressBook {
         int index = findContactByFirstName(firstName);
 
         if(index == -1){
-            System.out.print("Enter valid name");
+            System.out.println("Enter valid name");
             return null;
         }
 
@@ -98,5 +98,23 @@ public class AddressBook {
         contacts.get(index).setEmail(scanner.nextLine());
 
         return contacts.get(index);
+    }
+
+    //Remove contact from the list
+    public Contact removeContact(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter First Name : ");
+        String firstName = scanner.nextLine();
+        int index = findContactByFirstName(firstName);
+
+        if(index == -1){
+            System.out.println("Enter valid name");
+            return null;
+        }
+
+        Contact contact = contacts.get(index);
+        contacts.remove(index);
+        return contact;
     }
 }
