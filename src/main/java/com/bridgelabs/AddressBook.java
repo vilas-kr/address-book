@@ -16,6 +16,7 @@ public class AddressBook {
         contacts = new ArrayList<Contact>();
     }
 
+    //create a new contact and add it to the list
     public Contact addContact(){
 
         Scanner scanner = new Scanner(System.in);
@@ -51,6 +52,8 @@ public class AddressBook {
         return contact;
     }
 
+    /* find the contact by there first name and return index of the contact
+    if contact not present return -1 */
     public int findContactByFirstName(String firstName) {
         for(int i = 0; i < contacts.size(); i++){
             if(contacts.get(i).getFirstName().equalsIgnoreCase(firstName))
